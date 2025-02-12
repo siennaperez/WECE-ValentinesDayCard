@@ -1,0 +1,20 @@
+// Step 13 (OPTIONAL): Change the shape of the confetti (maybe try heart shapes <3)??? (curtesy of chatgpt math)
+  void display() {
+  fill(particleColor);
+  noStroke();
+
+  float heartSize = size/15;  // Use the size of the particle to scale the heart shape
+  beginShape();
+  
+  // Loop through the values of t to create the heart shape
+  for (float t = 0; t <= TWO_PI; t += 0.1) {
+    // Parametric equations for the heart shape
+    float xHeart = x + heartSize * 16 * pow(sin(t), 3);
+    float yHeart = y - heartSize * (13 * cos(t) - 5 * cos(2 * t) - 2 * cos(3 * t) - cos(4 * t));
+
+    // Create the heart shape by connecting the points
+    vertex(xHeart, yHeart);
+  }
+
+  endShape(CLOSE);
+}
